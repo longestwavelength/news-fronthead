@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NewsItem } from '.';
-import { FirstNewsItem } from '.';
 import { Navbar } from '.';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -24,8 +23,8 @@ const NewsList = () => {
             <BrowserRouter>
             <Navbar/>
             </BrowserRouter>
-           {articles.map((article, a) => {
-            if(a >= 1){
+           {articles.map((article) => {
+            
             return (
                 <NewsItem 
                 title={article.title}
@@ -33,17 +32,6 @@ const NewsList = () => {
                 url={article.url}
                 urlToImage={article.urlToImage} />
             )
-            }else {
-                return (
-                    <div id='first-article'>
-                        <FirstNewsItem 
-                title={article.title}
-                description={article.description}
-                url={article.url}
-                urlToImage={article.urlToImage} />
-                    </div>
-                )
-            }
            }) }
         </div>
     )
